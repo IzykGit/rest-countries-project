@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&display=swap');
+
+
+.inputContainer {
+    margin: 100px;
+}
+
+.countryCardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    row-gap: 50px;
+    column-gap: 105px;
+    font-family: 'Oswald', sans-serif;
+    padding: 30px;
+    justify-content: center;
+}
+
+.countryCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    height: 400px;
+    box-shadow: 0px 0px 20px 1px rgb(170, 170, 170);
+    text-align: left;
+}
+
+.countryFlag {
+    height: 300px;
+}
+
+.countryFlag> img {
+    width: 350px;
+    height: auto;
+    max-height: 250px;
+    min-height: 200px;
+}
+
+.countryInfo {
+    width: 90%;
+    height: 100px;
+}
+
+.countryInfo > p {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
