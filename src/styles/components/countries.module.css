@@ -5,19 +5,24 @@
 }
 
 .inputContainer {
-    margin: 100px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.inputSubContainer {
+    padding: 100px 0px 50px 0px;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: fit-content;
     font-family: 'Oswald', sans-serif;
-    width: 90%;
+    width: 80%;
 }
 
-.inputContainer > input {
+.inputSubContainer > input {
     font-size: 20px;
-    margin-right: 30px;
     width: 300px;
     height: 50px;
     padding: 0px 20px 0px 20px;
@@ -25,7 +30,7 @@
     box-shadow: 0px 0px 10px 1px lightgrey;
 }
 
-.inputContainer > input:focus {
+.inputSubContainer > input:focus {
     outline: none;
 }
 
@@ -48,9 +53,23 @@
 
 
 
-@media screen and (max-width: 500px) {
-    .inputContainer {
+@media screen and (max-width: 850px) {
+    .inputSubContainer {
         flex-direction: column;
+        justify-content: space-between;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .inputSubContainer > input {
+        font-size: 15px;
+        width: 200px;
+    }
+
+    .selectRegion {
+        width: 200px;
+        font-size: 15px;
     }
 }
 
@@ -58,7 +77,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, 350px);
     row-gap: 105px;
-    column-gap: 6%;
+    column-gap: 100px;
     font-family: 'Oswald', sans-serif;
     justify-content: center;
 }
@@ -85,6 +104,7 @@
     border-bottom: 2px solid rgb(214, 214, 214);
 }
 
+
 .countryInfo {
     width: 90%;
     height: 100px;
@@ -94,4 +114,22 @@
     padding: 0;
     margin: 0;
     font-size: 20px;
+}
+
+@media screen and (max-width: 400px) {
+    .countryCardContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .countryCard {
+        height: 300px;
+    }
+    .countryFlag> img {
+        width: 250px;
+        height: 150px;
+    }
 }

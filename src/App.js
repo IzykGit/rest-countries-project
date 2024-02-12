@@ -1,19 +1,17 @@
 
 import './App.css';
 import Countries from './components/countries';
-import { useState } from 'react';
+import Head from './components/head';
+import { ThemeProvider } from './ThemeContext';
 
 
 function App() {
   return (
     <div className="App">
-          <div className="componentContainer">
-            <div className="subContainer">
-              <p>Where in the world?</p>
-              <button>Dark Mode</button>
-            </div>
-          </div>
-      <Countries />
+      <ThemeProvider>
+        <Head />
+        <Countries />
+      </ThemeProvider>
     </div>
   );
 }
