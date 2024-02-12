@@ -9,3 +9,42 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&display=swap');
+
+
+.componentContainer {
+    display: flex;
+    justify-content: center;
+    height: 120px;
+    box-shadow: 0px 0px 20px 1px lightgrey;
+    font-family: 'Oswald', sans-serif;
+}
+
+.subContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: inherit;
+}
+
+.subContainer > p {
+    font-size: 30px;
+}
+
+.subContainer > button {
+    font-size: 25px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.subContainer > button:hover {
+    box-shadow: 0px 0px 20px 1px rgb(202, 202, 202);
+}

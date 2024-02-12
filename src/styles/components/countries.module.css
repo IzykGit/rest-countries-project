@@ -1,17 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&display=swap');
 
+.componentContainer {
+    width: 100%;
+}
 
 .inputContainer {
     margin: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+    font-family: 'Oswald', sans-serif;
+    width: 90%;
+}
+
+.inputContainer > input {
+    font-size: 20px;
+    margin-right: 30px;
+    width: 300px;
+    height: 50px;
+    padding: 0px 20px 0px 20px;
+    border: none;
+    box-shadow: 0px 0px 10px 1px lightgrey;
+}
+
+.inputContainer > input:focus {
+    outline: none;
+}
+
+
+.selectRegion {
+    font-size: 20px;
+    width: 300px;
+    height: 50px;
+    padding: 0px 20px 0px 20px;
+    border: none;
+    box-shadow: 0px 0px 10px 1px lightgrey;
+}
+
+.selectRegion:focus {
+    outline: none;
+    cursor: default;
+}
+
+
+
+
+
+@media screen and (max-width: 500px) {
+    .inputContainer {
+        flex-direction: column;
+    }
 }
 
 .countryCardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, 350px);
-    row-gap: 50px;
-    column-gap: 105px;
+    row-gap: 105px;
+    column-gap: 6%;
     font-family: 'Oswald', sans-serif;
-    padding: 30px;
     justify-content: center;
 }
 
@@ -28,13 +76,13 @@
 
 .countryFlag {
     height: 300px;
+
 }
 
 .countryFlag> img {
     width: 350px;
-    height: auto;
-    max-height: 250px;
-    min-height: 200px;
+    height: 250px;
+    border-bottom: 2px solid rgb(214, 214, 214);
 }
 
 .countryInfo {
