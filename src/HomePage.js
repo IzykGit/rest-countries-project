@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from './components/head'
-import styles from './styles/components/countries.module.css'
+import styles from './styles/homePage.module.css'
 import { useEffect, useState } from 'react'
 import { useTheme, useThemeUpdate } from './ThemeContext'
 import { useNavigate } from 'react-router-dom'
@@ -106,7 +106,7 @@ const HomePage = () => {
               {data.map(country => {
 
                   return (
-                          <div key={country.common} className={styles.countryCard} style={themeStyles} onClick={() => passCountryParams(country.name)}>
+                          <div key={country.common} className={styles.countryCard} style={themeStyles} onClick={() => passCountryParams(country)}>
                               <div className={styles.countryFlag}>
                                   <img src={country.flags.png} alt={country.flags.alt}/>
                               </div>

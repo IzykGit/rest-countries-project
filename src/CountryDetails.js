@@ -2,91 +2,144 @@ import React, { useEffect, useState } from 'react'
 import Head from './components/head'
 import styles from './styles/CountryDetails.module.css'
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTheme, useThemeUpdate } from './ThemeContext';
 
 
 
 export default function CountryDetails() {
 
-    const [data, setData] = useState({})
+
+
+    const darkTheme = useTheme()
+
+    const themeStyles = {
+      backgroundColor: darkTheme ? "#383838" : "white",
+      color: darkTheme ? "white" : "#383838",
+      boxShadow: darkTheme ? "0px 4px 8px #282828" : "0px 4px 10px lightgrey",
+  
+    }
 
     const location = useLocation();
-    const countryName = location.state;
-    console.log(countryName.common)
+    const country = location.state;
+    console.log(country)
 
+    const [borderCountries, setBorderCountries] = useState([])
 
     useEffect(() => {
-        async function searchCountry() {
-            const response = await fetch(`https://restcountries.com/v3.1/name/${countryName.common}`)
-            const result = await response.json()
-            setData(result)
-            console.log(result)
-        }
+        async function fetchBorderCountries(borders) {
+          const responses = await Promise.all(
+            borders.map(borderCode =>
+              fetch(`https://restcountries.com/v3.1/alpha/${borderCode}`).then(response => response.json())
+            )
+          );
+      
 
-        if (countryName.common) {
-            searchCountry()
-        }
-    }, [countryName.common])
-    
+          const borderCountries = responses.map(response => response[0]);
+          console.log(borderCountries)
 
-    const navigate = useNavigate()
+          if (country.borders) {
+            setBorderCountries(borderCountries)
+          }
+        }
+      
+
+        if(country.borders) {  
+            fetchBorderCountries(country.borders);
+        }
+      }, [country.borders]);
+
+
+
+    let currencyDetails;
+        if (country.currencies) {
+        currencyDetails = Object.entries(country.currencies).map(([currencyCode, {name}]) => (
+            <p key={currencyCode}>Currencies: {name}</p>
+        ));
+    }
+
+
+    let languageDetails;
+    if (country.languages) {
+        const languagesList = Object.values(country.languages).join(', ');
+        languageDetails = <p>Languages: {languagesList}</p>;
+    }
+
+    let nativeName;
+    if (country.name.nativeName) {
+        const firstNativeNameEntry = Object.entries(country.name.nativeName)[0];
+        const [nameCode, {official}] = firstNativeNameEntry;
+        nativeName = <p key={nameCode}>Native Name: {official}</p>;
+    }
+
+
+    const navigate = useNavigate();
+
+    const passCountryParams = (country) => {
+    navigate('/countrydetails', { state: { ...country } });
+    }
 
     function homePage() {
         navigate('/')
     }
 
-
-
     return (
-        <div>
-            <Head />
+        <div style={{height: "100vh", overflow: "hidden"}}>
+        <Head />
+        <div className={styles.pageContainer} style={themeStyles}>
 
-            <button onClick={() => homePage()}>Back</button>
 
-            <div className={styles.infoContainer}>
-                {data.length > 0 && data.map(country => {
-                        let currencyDetails;
-                        if (country.currencies) {
-                        currencyDetails = Object.entries(country.currencies).map(([currencyCode, { name }]) => (
-                            <p key={currencyCode}>Currencies: {name}</p>
-                        ));
-                        }
+
+            <div className={styles.mainContainer}>
+ 
+                <div className={styles.subContainer}>
                     
+                            <div className={styles.buttonContainer}>
+                                <button onClick={() => homePage()} style={themeStyles}>Back</button>
+                            </div>
+                            <div className={styles.countryFlagContainer}>
+                                <img src={country.flags.png} alt={country.flags.alt} className={styles.countryFlag}  style={themeStyles}/>
+                            </div>
 
-                        let languageDetails;
-                        if (country.languages) {
-                        languageDetails = Object.entries(country.languages).map(([languageCode, languageName]) => (
-                            <p key={languageCode}>Languages: {languageName}</p>
-                        ));
-                        }
 
-                        let nativeName;
-                        if (country.name.nativeName) {
-                            const firstNativeNameEntry = Object.entries(country.name.nativeName)[0];
-                            const [nameCode, {official}] = firstNativeNameEntry;
-                            nativeName = <p key={nameCode}>Native Name: {official}</p>;
-                        }
-                    return (
-                        <div key={country.name.common}>
-                            <img src={country.flags.png} alt={country.flags.alt}/>
-                            <h1>{country.name.common}</h1>
-                            {nativeName}
-                            <p>Population: {country.population}</p>
-                            <p>Region: {country.region}</p>
-                            <p>Sub Region: {country.subregion}</p>
-                            <p>Capital: {country.capital}</p>
+ 
+                    <div className={styles.infoContainerGrid}>
+                            <div className={styles.infoGrid1}>
+                                <h1 className={styles.countryName}>{country.name.common}</h1>
+                            </div>
 
-                            <div>
+                            <div key={country.name.common} className={styles.infoGrid2}>
+                                {nativeName}
+                                <p>Population: {country.population}</p>
+                                <p>Region: {country.region}</p>
+                                <p>Sub Region: {country.subregion}</p>
+                                <p>Capital: {country.capital}</p>
+
+                            </div>
+                            <div className={styles.infoGrid3}>
                                 <p>Top Level Domain: {country.tld}</p>
                                 {currencyDetails}
                                 {languageDetails}
                             </div>
-
-                            <div>
-                                
-                            </div>
                         </div>
-                    )
-                })}
+
+                        
+                    <div className={styles.borderCountriesContainer}>
+                            <p>Bordering Countries:</p>
+                            {borderCountries.map(country => {
+                            return (
+                                <div className={styles.borderCountriesCard} key={country.name.common} onClick={() => passCountryParams(country)}>
+                                    <p style={themeStyles}>{country.name.common}</p>
+                                </div>
+                            )
+                         })}      
+                    </div>
+
+                    </div>
+
+                </div>
+
+
+
 
             </div>
         </div>
