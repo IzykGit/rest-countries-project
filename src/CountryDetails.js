@@ -53,7 +53,7 @@ export default function CountryDetails() {
     let currencyDetails;
         if (country.currencies) {
         currencyDetails = Object.entries(country.currencies).map(([currencyCode, {name}]) => (
-            <p key={currencyCode}>Currencies: {name}</p>
+            <p key={currencyCode}><span style={{fontWeight: "bold"}}>Currencies:</span> {name}</p>
         ));
     }
 
@@ -61,14 +61,14 @@ export default function CountryDetails() {
     let languageDetails;
     if (country.languages) {
         const languagesList = Object.values(country.languages).join(', ');
-        languageDetails = <p>Languages: {languagesList}</p>;
+        languageDetails = <p><span style={{fontWeight: "bold"}}>Languages:</span> {languagesList}</p>;
     }
 
     let nativeName;
     if (country.name.nativeName) {
         const firstNativeNameEntry = Object.entries(country.name.nativeName)[0];
         const [nameCode, {official}] = firstNativeNameEntry;
-        nativeName = <p key={nameCode}>Native Name: {official}</p>;
+        nativeName = <p key={nameCode}><span style={{fontWeight: "bold"}}>Native Name:</span> {official}</p>;
     }
 
 
@@ -83,9 +83,9 @@ export default function CountryDetails() {
     }
 
     return (
-        <div style={{height: "100vh", overflow: "hidden"}}>
+        <div className={styles.pageContainer}>
         <Head />
-        <div className={styles.pageContainer} style={themeStyles}>
+        <div className={styles.componentContainer} style={themeStyles}>
 
 
 
@@ -109,14 +109,14 @@ export default function CountryDetails() {
 
                             <div key={country.name.common} className={styles.infoGrid2}>
                                 {nativeName}
-                                <p>Population: {country.population}</p>
-                                <p>Region: {country.region}</p>
-                                <p>Sub Region: {country.subregion}</p>
-                                <p>Capital: {country.capital}</p>
+                                <p><span style={{fontWeight: "bold"}}>Population:</span> {country.population}</p>
+                                <p><span style={{fontWeight: "bold"}}>Region:</span> {country.region}</p>
+                                <p><span style={{fontWeight: "bold"}}>Sub Region:</span> {country.subregion}</p>
+                                <p><span style={{fontWeight: "bold"}}>Capital:</span> {country.capital}</p>
 
                             </div>
                             <div className={styles.infoGrid3}>
-                                <p>Top Level Domain: {country.tld}</p>
+                                <p><span style={{fontWeight: "bold"}}>Top Level Domain:</span> {country.tld}</p>
                                 {currencyDetails}
                                 {languageDetails}
                             </div>
@@ -124,7 +124,7 @@ export default function CountryDetails() {
 
                         
                     <div className={styles.borderCountriesContainer}>
-                            <p>Bordering Countries:</p>
+                            <p style={{fontWeight: "bold"}}>Bordering Countries:</p>
                             {borderCountries.map(country => {
                             return (
                                 <div className={styles.borderCountriesCard} key={country.name.common} onClick={() => passCountryParams(country)}>
