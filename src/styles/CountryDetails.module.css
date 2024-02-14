@@ -2,145 +2,168 @@
 
 
 .page {
+    position: relative;
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100dvh;
-    font-family: 'Oswald', sans-serif;
-
+    justify-content: center;
 }
 
 .componentContainer {
-    position: relative;
-    top: 50px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    width: 90%;
-    column-gap: 50px;
-    height: 80%;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    width: fit-content;
+    column-gap: 150px;
+    row-gap: 50px;
 }
 
-
-.buttonContainer {
+.homeButton {
     grid-row: 1;
-    grid-column: 1 / 5;    display: flex;
-    align-items: center;
-}
-
-.buttonContainer > button {
-    border: none;
-    font-size: 30px;
+    grid-column: 1 / 2;
     width: 200px;
     height: 50px;
-    font-family: 'Oswald', sans-serif;
-    cursor: pointer;
+    position: relative;
+    top: 50px;
+    border: none;
 }
 
 .countryFlagContainer {
-    grid-row: 2 / 4;
-    grid-column: 1 / 2;
-    width: 600px;
-    height: 100%;
-    margin-right: 150px;
-}
-
-.countryFlagContainer > img {
-    width: 100%;
-    height: 100%
-}
-
-.countryNameContainer {
     grid-row: 2;
-    grid-column: 2 / 5;}
-
-.infoContainer {
-    display: flex;
-    grid-row: 3;
-    grid-column: 2 / 5;}
-
-.info1 {    margin-right: 50px;
-    width: 100%;
-}
-
-.info2 {    width: 100%;
-}
-
-.borderCountriesContainer {
-    grid-row: 4;
-    grid-column: 1 / 5; 
+    width: fit-content;
     display: flex;
     align-items: center;
+    height: 500px
+}
+
+.countryFlag {
+    width: 500px;
+}
+
+
+
+
+
+
+.infoContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    height: 100%;
+    grid-row: 2;
+    grid-column: 2 / 2;
+}
+
+.countryName {
+    grid-row: 1;
+    grid-template-columns: 1 / 3;
+}
+
+.info1 {
+    grid-row: 2;
+    grid-column: 1;
+    width: 400px;
+}
+
+.info2 {
+    grid-row: 2;
+    grid-column: 2;
+    width: 400px;
+}
+
+
+.borderCountriesContainer {
+    display: flex;
+    grid-row: 3;
+    grid-column: 1 / 3;
+    align-items: center;
+    max-width: 800px;
     flex-wrap: wrap;
 }
 
+.borderCountriesContainer > p {
+    margin-right: 20px;
+}
+
 .borderCountryCard {
-    margin: 0px 30px 0px 30px;
-    text-align: center;
-    align-items: center;
+    display: flex;
+    margin-right: 20px;
 }
 
 .borderCountryCard > p {
-    padding: 10px 30px 10px 30px;
-    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
 }
 
 
-@media screen and (max-width: 1600px) {
-    .countryFlagContainer {
-        margin: 0px;
-    }
-}
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1500px) {
     .componentContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 100%;
     }
 
-    .buttonContainer {
-        margin-bottom: 30px;
+    .homeButton {
+        top: 0;
+    }
+
+    .infoContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: fit-content;
     }
 
     .borderCountriesContainer {
+        justify-content: center;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+
+    .componentContainer {
+        position: relative;
+        top: 150px;
+        width: 100%;
+    }
+
+    .countryFlagContainer {
+        height: fit-content;
         width: 100%;
         display: flex;
+        justify-content: center;
+    }
+
+    .info1 {
+        width: 100%;
+    }
+
+    .info2 {
+        width: 100%;
+    }
+
+    .countryFlag {
+        width: 80%;
+    }
+
+
+    .borderCountriesContainer {
         flex-direction: column;
+        width: 100%;
     }
 
     .borderCountryCard {
-        margin: 5px;
+        margin: 0;
+    }
+
+    .borderCountryCard > p {
         min-width: 250px;
     }
 }
 
 
-@media screen and (max-width: 650px) {
-    .countryFlagContainer {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .infoContainer {
-        flex-direction: column;
-        margin: 30px 0px 30px 0px;
-    }
-
-    .info1 {
-        margin: 0;
-    }
-
-    .countryFlagContainer > img {
-        width: 350px;
-    }
-}
-
-
-@media screen and (max-width: 350px) {
-    .countryFlagContainer > img {
-        width: 250px;
-    }
-}

@@ -91,20 +91,20 @@ export default function CountryDetails() {
         <Head className={styles.head}/>
         <div className={styles.page} style={themeStyles}>
             <div className={styles.componentContainer} style={componentTheme}>
-                    <div className={styles.buttonContainer}>
-                        <button onClick={() => homePage()} style={themeStyles}>Back</button>
-                    </div>
+
+                    <button className={styles.homeButton} onClick={() => homePage()} style={themeStyles}>Back</button>
+
                     <div className={styles.countryFlagContainer}>
                         <img src={country.flags.png} alt={country.flags.alt} className={styles.countryFlag}  style={themeStyles}/>
                     </div>
 
 
+
  
-                    <div className={styles.countryNameContainer}>
-                        <h1 className={styles.countryName}>{country.name.common}</h1>
-                    </div>
+
 
                     <div className={styles.infoContainer}>
+                        <h1 className={styles.countryName}>{country.name.common}</h1>
                         <div key={country.name.common} className={styles.info1}>
                             {nativeName}
                             <p><span style={{fontWeight: "bold"}}>Population:</span> {country.population}</p>
@@ -118,11 +118,7 @@ export default function CountryDetails() {
                             {currencyDetails}
                             {languageDetails}
                         </div>
-                    </div>
-
-
-                        
-                    <div className={styles.borderCountriesContainer}  style={componentTheme}>
+                        <div className={styles.borderCountriesContainer}  style={componentTheme}>
                             <p style={{fontWeight: "bold"}}>Bordering Countries:</p>
                             {borderCountries.map(country => {
                             return (
@@ -131,7 +127,12 @@ export default function CountryDetails() {
                                 </div>
                             )
                             })}      
+                        </div>
                     </div>
+
+
+                        
+
             </div>
 
         </div>
