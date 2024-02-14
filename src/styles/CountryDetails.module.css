@@ -34,11 +34,12 @@
     width: fit-content;
     display: flex;
     align-items: center;
-    height: 500px
+    height: 500px;
 }
 
 .countryFlag {
     width: 500px;
+    max-height: 425px;
 }
 
 
