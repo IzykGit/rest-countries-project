@@ -18,6 +18,11 @@ export default function CountryDetails() {
       boxShadow: darkTheme ? "0px 4px 8px #282828" : "0px 4px 10px lightgrey",
     }
 
+    const componentTheme = {
+        backgroundColor: darkTheme ? "#383838" : "white",
+        color: darkTheme ? "white" : "#383838",
+    }
+
     const location = useLocation();
     const country = location.state;
     console.log(country)
@@ -85,7 +90,7 @@ export default function CountryDetails() {
         <>
         <Head className={styles.head}/>
         <div className={styles.page} style={themeStyles}>
-            <div className={styles.componentContainer}>
+            <div className={styles.componentContainer} style={componentTheme}>
                     <div className={styles.buttonContainer}>
                         <button onClick={() => homePage()} style={themeStyles}>Back</button>
                     </div>
@@ -117,7 +122,7 @@ export default function CountryDetails() {
 
 
                         
-                    <div className={styles.borderCountriesContainer}>
+                    <div className={styles.borderCountriesContainer}  style={componentTheme}>
                             <p style={{fontWeight: "bold"}}>Bordering Countries:</p>
                             {borderCountries.map(country => {
                             return (
