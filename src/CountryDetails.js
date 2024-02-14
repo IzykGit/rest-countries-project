@@ -16,7 +16,6 @@ export default function CountryDetails() {
       backgroundColor: darkTheme ? "#383838" : "white",
       color: darkTheme ? "white" : "#383838",
       boxShadow: darkTheme ? "0px 4px 8px #282828" : "0px 4px 10px lightgrey",
-  
     }
 
     const location = useLocation();
@@ -83,65 +82,54 @@ export default function CountryDetails() {
     }
 
     return (
-        <div className={styles.pageContainer}>
-        <Head />
-        <div className={styles.componentContainer} style={themeStyles}>
-
-
-
-            <div className={styles.mainContainer}>
- 
-                <div className={styles.subContainer}>
-                    
-                            <div className={styles.buttonContainer}>
-                                <button onClick={() => homePage()} style={themeStyles}>Back</button>
-                            </div>
-                            <div className={styles.countryFlagContainer}>
-                                <img src={country.flags.png} alt={country.flags.alt} className={styles.countryFlag}  style={themeStyles}/>
-                            </div>
+        <>
+        <Head className={styles.head}/>
+        <div className={styles.page} style={themeStyles}>
+            <div className={styles.componentContainer}>
+                    <div className={styles.buttonContainer}>
+                        <button onClick={() => homePage()} style={themeStyles}>Back</button>
+                    </div>
+                    <div className={styles.countryFlagContainer}>
+                        <img src={country.flags.png} alt={country.flags.alt} className={styles.countryFlag}  style={themeStyles}/>
+                    </div>
 
 
  
-                    <div className={styles.infoContainerGrid}>
-                            <div className={styles.infoGrid1}>
-                                <h1 className={styles.countryName}>{country.name.common}</h1>
-                            </div>
+                    <div className={styles.countryNameContainer}>
+                        <h1 className={styles.countryName}>{country.name.common}</h1>
+                    </div>
 
-                            <div key={country.name.common} className={styles.infoGrid2}>
-                                {nativeName}
-                                <p><span style={{fontWeight: "bold"}}>Population:</span> {country.population}</p>
-                                <p><span style={{fontWeight: "bold"}}>Region:</span> {country.region}</p>
-                                <p><span style={{fontWeight: "bold"}}>Sub Region:</span> {country.subregion}</p>
-                                <p><span style={{fontWeight: "bold"}}>Capital:</span> {country.capital}</p>
+                    <div className={styles.infoContainer}>
+                        <div key={country.name.common} className={styles.info1}>
+                            {nativeName}
+                            <p><span style={{fontWeight: "bold"}}>Population:</span> {country.population}</p>
+                            <p><span style={{fontWeight: "bold"}}>Region:</span> {country.region}</p>
+                            <p><span style={{fontWeight: "bold"}}>Sub Region:</span> {country.subregion}</p>
+                            <p><span style={{fontWeight: "bold"}}>Capital:</span> {country.capital}</p>
 
-                            </div>
-                            <div className={styles.infoGrid3}>
-                                <p><span style={{fontWeight: "bold"}}>Top Level Domain:</span> {country.tld}</p>
-                                {currencyDetails}
-                                {languageDetails}
-                            </div>
                         </div>
+                        <div className={styles.info2}>
+                            <p><span style={{fontWeight: "bold"}}>Top Level Domain:</span> {country.tld}</p>
+                            {currencyDetails}
+                            {languageDetails}
+                        </div>
+                    </div>
+
 
                         
                     <div className={styles.borderCountriesContainer}>
                             <p style={{fontWeight: "bold"}}>Bordering Countries:</p>
                             {borderCountries.map(country => {
                             return (
-                                <div className={styles.borderCountriesCard} key={country.name.common} onClick={() => passCountryParams(country)}>
+                                <div key={country.name.common} onClick={() => passCountryParams(country)} className={styles.borderCountryCard}>
                                     <p style={themeStyles}>{country.name.common}</p>
                                 </div>
                             )
-                         })}      
+                            })}      
                     </div>
-
-                    </div>
-
-                </div>
-
-
-
-
             </div>
+
         </div>
+    </>
   )
 }

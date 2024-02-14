@@ -5,8 +5,10 @@
     display: flex;
     justify-content: center;
     height: 120px;
-    box-shadow: 0px 0px 20px 1px lightgrey;
     font-family: 'Oswald', sans-serif;
+    position: absolute;
+    width: 100vw;
+    z-index: 2;
 }
 
 .subContainer {
@@ -26,7 +28,6 @@
     padding: 10px;
     width: 200px;
     border: none;
-    background-color: transparent;
     font-family: 'Oswald', sans-serif;
     cursor: pointer;
     transition: 0.3s;
