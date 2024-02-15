@@ -61,7 +61,7 @@ const HomePage = () => {
   const themeStyles = {
     backgroundColor: darkTheme ? "white" : "#383838",
     color: darkTheme ? "#383838" : "white",
-    boxShadow: darkTheme ? "0px 4px 8px #282828" : "0px 4px 10px lightgrey",
+    boxShadow: darkTheme ? "0px 4px 10px lightgrey" : "0px 4px 8px #282828"
   }
 
   const navigate = useNavigate();
