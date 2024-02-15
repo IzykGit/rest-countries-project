@@ -13,14 +13,14 @@ export default function CountryDetails() {
     const darkTheme = useTheme()
 
     const themeStyles = {
-      backgroundColor: darkTheme ? "#383838" : "white",
-      color: darkTheme ? "white" : "#383838",
+      backgroundColor: darkTheme ? "white" : "#383838",
+      color: darkTheme ? "#383838" : "white",
       boxShadow: darkTheme ? "0px 4px 8px #282828" : "0px 4px 10px lightgrey",
     }
 
     const componentTheme = {
-        backgroundColor: darkTheme ? "#383838" : "white",
-        color: darkTheme ? "white" : "#383838",
+        backgroundColor: darkTheme ? "white" : "#383838",
+        color: darkTheme ? "#383838" : "white",
     }
 
     const location = useLocation();

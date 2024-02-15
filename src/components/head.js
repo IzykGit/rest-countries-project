@@ -7,8 +7,8 @@ const Head = () => {
   const toggleTheme = useThemeUpdate()
 
   const themeStyles = {
-    backgroundColor: darkTheme ? "#0C0C0C" : "white",
-    color: darkTheme ? "white" : "#0C0C0C",
+    backgroundColor: darkTheme ? "white" : "#383838",
+    color: darkTheme ? "#383838" : "white",
     boxShadow: darkTheme ? "0px 4px 8px #282828" : "0px 4px 10px lightgrey",
   }
 
