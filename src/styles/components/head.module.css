@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
 
 .componentContainer {
     display: flex;
     justify-content: center;
     height: 120px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     position: absolute;
     width: 100vw;
     z-index: 2;
@@ -24,12 +24,16 @@
 }
 
 .subContainer > button {
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px;
     width: 200px;
     border: none;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 5px;
+    background-image: url("../../../public/night-mode.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position:center left;
 }

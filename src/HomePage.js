@@ -59,7 +59,7 @@ const HomePage = () => {
   const darkTheme = useTheme()
 
   const themeStyles = {
-    backgroundColor: darkTheme ? "white" : "#383838",
+    backgroundColor: darkTheme ? "white" : "#424242",
     color: darkTheme ? "#383838" : "white",
     boxShadow: darkTheme ? "0px 4px 10px lightgrey" : "0px 4px 8px #282828"
   }
@@ -111,9 +111,9 @@ const HomePage = () => {
                               </div>
                               <div className={styles.countryInfo}>
                                   <p className={styles.countryName}>{country.name.common}:</p>
-                                  <p>Population: {country.population}</p>
-                                  <p>Region: {country.region}</p>
-                                  <p>Capital: {country.capital}</p>
+                                  <p><span style={{fontWeight: "bold"}}>Population:</span> {country.population}</p>
+                                  <p><span style={{fontWeight: "bold"}}>Region:</span> {country.region}</p>
+                                  <p><span style={{fontWeight: "bold"}}>Capital:</span> {country.capital}</p>
                               </div>
 
                           </div>
