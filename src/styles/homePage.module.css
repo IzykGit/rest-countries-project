@@ -24,23 +24,32 @@
     width: 80%;
 }
 
-.inputSubContainer > input {
+.countryInput {
     font-size: 20px;
     width: 300px;
     height: 50px;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 0px 0px 50px;
     border: none;
     box-shadow: 0px 0px 10px 1px lightgrey;
     font-family: 'Quicksand', sans-serif;
+    background-image: url("../../public/search.png");
+    background-position: center left;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position-x: 10px;
 }
 
-.inputSubContainer > input:focus {
+.countryInput:focus {
     outline: none;
+}
+
+.countryInput::placeholder {
+    font-size: 18px;
 }
 
 
 .selectRegion {
-    font-size: 20px;
+    font-size: 18px;
     width: 300px;
     height: 50px;
     padding: 0px 20px 0px 20px;
@@ -54,6 +63,8 @@
     outline: none;
     cursor: default;
 }
+
+
 
 
 

@@ -80,7 +80,7 @@ const HomePage = () => {
 
           <div className={styles.inputContainer}>
               <div className={styles.inputSubContainer}>
-                  <input placeholder="Search Country" id='countryInput' type='text' onChange={(e) => setInput(e.target.value)} style={themeStyles}/>
+                  <input placeholder="Search for a country..." className={styles.countryInput} type='text' onChange={(e) => setInput(e.target.value)} style={themeStyles}/>
                   <select className={styles.selectRegion} id='regionSelection' onChange={(e) => {
 
                       setRegion(e.target.value)
