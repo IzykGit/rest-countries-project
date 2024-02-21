@@ -3,7 +3,8 @@
 
 .page {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,6 +107,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        top: 250px;
+        width: 100%;
     }
 
     .homeButton {
@@ -128,11 +132,6 @@
 
 @media screen and (max-width: 750px) {
 
-    .componentContainer {
-        position: relative;
-        top: 150px;
-        width: 100%;
-    }
 
     .countryFlagContainer {
         height: fit-content;
